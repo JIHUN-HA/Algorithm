@@ -1,0 +1,33 @@
+//https://swexpertacademy.com/main/solvingProblem/solvingProblem.do
+
+#include<iostream> 
+using namespace std; 
+
+int main(){
+
+	int N = 0;
+	int memoNum[101] = { 0 };
+	int tmp = 0;
+
+	cin >> N; 
+
+	for (int i = 1; i < 10; i++) 
+		for (int j = 1; j < 10; j++) 
+			memoNum[i * j] = 1;
+	
+	for (int i = 0; i < N; i++) {
+		cin >> tmp;
+		if (tmp > 81 || tmp < 1) {
+			cout << '#' << i + 1 << " No\n";
+			continue;
+		}
+		if (memoNum[tmp] == 1) {
+			cout << '#' << i + 1 << " Yes\n";
+		}
+		else {
+			cout << '#' << i + 1 << " No\n";
+		}
+	}
+
+	return 0;
+}
